@@ -45,6 +45,20 @@ class TablesSessionsController {
       next(error);
     }
   }
+
+  async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const id = z
+      .string()
+      .transform((value) => Number(value))
+      .refine((value) => !isNaN(value), { message: 'O id deve ser um número' })
+      .parse(req.params.id)
+
+      return res.json()
+    } catch (error) {
+      next(error);
+    }
+  }   
 }
 
 export { TablesSessionsController };
