@@ -22,13 +22,25 @@ class TablesSessionsController {
         throw new AppError('A mesa já está aberta em uso');
       }
         
-      
+
       await knex<TablesSessionsRepository>('tables_sessions').insert({
         table_id,
         opened_at: knex.fn.now(),
       });
 
       return res.status(201).json()
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  async index(req: Request, res: Response, next: NextFunction) {
+    try {
+      const sessions = await knex<TablesSessionsRepository>
+        ("tables_sessions")
+       .orderBy('opened_at')
+
+      return res.json(sessions);
     } catch (error) {
       next(error);
     }
