@@ -5,6 +5,6 @@ import { TablesSessionsController } from '@/controllers/tables-sessions-controll
 const tablesSessionsRoutes = Router();
 const tablesSessionsController = new TablesSessionsController();
 
-tablesSessionsRoutes.post('/tables-sessions', tablesSessionsController.create);
+tablesSessionsRoutes.post('/', tablesSessionsController.create);
 
 export { tablesSessionsRoutes };
