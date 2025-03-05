@@ -3,17 +3,25 @@ import { AppError } from '@/utils/AppError';
 import { knex } from '@/database/knex'; 
 import { z } from 'zod';
 
-interface ProductRepository {
-  id: number;
-  name: string;
-  price: number;
-}
-
 interface TablesSessionsRepository {
   id: number;
-  table_id: number;
-  opened_at: Date;
   closed_at: Date | null;
+}
+
+interface ProductRepository {
+  id: number;
+  price: number;
+  name: string;
+}
+
+interface OrderRepository {
+  id?: number;
+  table_session_id: number;
+  product_id: number;
+  quantity: number;
+  price: number;
+  created_at?: Date;
+  updated_at?: Date;
 }
 
 class OrdersController {
@@ -85,6 +93,24 @@ class OrdersController {
     } catch (error) {
       next(error);
     }
+  }
+
+  async show(req: Request, res: Response, next: NextFunction) {
+    try {
+      const { table_session_id } = req.params;
+
+      const order = await knex<OrderRepository>('orders')
+      .select(
+        (knex.raw('COALESCE(SUM(orders.price * orders.quantity), 0) AS total')),
+        (knex.raw('COALESCE(SUM(orders.quantity), 0) AS quantity'))
+      )
+      .where({ table_session_id })
+      .first();
+
+      return res.json(order);
+    } catch (error) {
+      next(error);
+    }  
   }
 }
 
