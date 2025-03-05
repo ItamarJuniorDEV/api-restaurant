@@ -3,15 +3,12 @@ import { AppError } from '@/utils/AppError';
 import { knex } from '@/database/knex'; 
 import { z } from 'zod';
 
-// Interface para ProductRepository
 interface ProductRepository {
   id: number;
   name: string;
   price: number;
-  // outros campos necessários
 }
 
-// Definindo a interface para TablesSessionsRepository
 interface TablesSessionsRepository {
   id: number;
   table_id: number;
@@ -50,7 +47,15 @@ class OrdersController {
         throw new AppError('Produto não existe', 404)
       } 
 
-      return res.status(201).json(product);
+      await knex<OrderRepository>('orders')
+      .insert({
+        table_session_id,
+        product_id,
+        quantity,
+        price: product.price
+      })
+
+      return res.status(201).json();
     } catch (error) {
       next(error);
     }
