@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "8d924d87-1c66-4f1d-9b49-0385eb940125",
+		"name": "API Restaurante - Tables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36524064"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/tables",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"tables"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -104,7 +104,7 @@ class OrdersController {
         (knex.raw('COALESCE(SUM(orders.price * orders.quantity), 0) AS total')),
         (knex.raw('COALESCE(SUM(orders.quantity), 0) AS quantity'))
       )
-      .where({ table_session_id })
+      .where({ table_session_id: Number(table_session_id) })
       .first();
 
       return res.json(order);

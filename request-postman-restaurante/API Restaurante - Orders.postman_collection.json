@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "f6d98bde-8eb1-47d9-b0cc-5861946d51dc",
+		"name": "API Restaurante - Orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36524064"
+	},
+	"item": [
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"table_session_id\": 2,\r\n    \"product_id\": 22,\r\n    \"quantity\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3333/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Index By Table Session",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/orders/table-session/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"orders",
+						"table-session",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show By Table Session",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3333/orders/table-session/2/total",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3333",
+					"path": [
+						"orders",
+						"table-session",
+						"2",
+						"total"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
