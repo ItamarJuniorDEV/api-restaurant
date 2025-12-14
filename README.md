@@ -2,14 +2,14 @@
 
 Uma API RESTful para gerenciamento de restaurante, com recursos para controlar mesas, sessões, produtos e pedidos.
 
-## 📋 Funcionalidades
+## Funcionalidades
 
 - Gerenciamento de mesas (cadastro e listagem)
 - Controle de sessões de mesa (abertura e fechamento)
 - Cadastro de produtos (criação, edição, listagem e exclusão)
 - Gerenciamento de pedidos (criação, listagem por sessão e cálculo de total)
 
-## 🚀 Tecnologias
+## Tecnologias
 
 - Node.js
 - TypeScript
@@ -19,7 +19,7 @@ Uma API RESTful para gerenciamento de restaurante, com recursos para controlar m
 - Zod (Validação)
 - Swagger (Documentação)
 
-## 📦 Instalação
+## Instalação
 
 ```bash
 # Clone o repositório
@@ -41,7 +41,7 @@ npm run seed
 npm run dev
 ```
 
-## 📚 Documentação da API
+## Documentação da API
 
 A documentação completa da API está disponível através do Swagger UI.
 
@@ -49,7 +49,7 @@ Para acessar, inicie o servidor e acesse: [Swagger UI](http://localhost:3333/api
 
 ![Documentação Swagger](./docs/swagger-docs.png)
 
-## 🔄 Endpoints
+## Endpoints
 
 | Recurso     | Método  | Endpoint                              | Descrição                        |
 |------------|---------|----------------------------------|--------------------------------|
@@ -65,11 +65,11 @@ Para acessar, inicie o servidor e acesse: [Swagger UI](http://localhost:3333/api
 | Pedidos    | `GET`   | `/orders/table-session/:id`      | Lista pedidos de uma sessão   |
 | Pedidos    | `GET`   | `/orders/table-session/:id/total` | Obtém o total dos pedidos   |
 
-## 📝 Licença
+## Licença
 
 Este projeto está licenciado sob a licença MIT.
 
-## 👨‍💻 Autor
+## Autor
 
 Itamar Alves Ferreira Junior
 
